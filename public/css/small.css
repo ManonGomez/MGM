@@ -1,0 +1,30 @@
+.explain{
+    width: inherit;
+    margin:2%;
+}
+.explainContener{
+    display: inherit;
+    display: block;
+}
+.container1{
+    display: block;
+    width: 100%;
+    margin: 2%;
+}
+.container{
+    width: 100%;
+}
+.picContainer{
+    width: 40%;
+}
+.picture{
+    width: 30%;
+    height: 30%;
+}
+.portrait{
+        width: 100%;
+}
+
+#name, #mail, #telephone, #topic, #exampleFormControlTextarea1{
+    width: 50%;
+}

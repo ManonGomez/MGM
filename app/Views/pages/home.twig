@@ -1,0 +1,41 @@
+{% extends "layout_home.twig" %}
+
+{% block title %}
+    MGM
+{% endblock %}
+
+{% block content %}
+<div class="home-page-content">
+    {% include "blocks/bootstrap_slider/bootstrap_slider.twig" %}
+
+    <section id="sectionservices">
+        {% include "blocks/services/services.twig" %}
+    </section>
+
+    <section id="portfolio">
+        {% include "blocks/portfolio/portfolio.twig" %}
+    </section>
+
+    <section id="sectionabout" class="dark-bg">
+        {% include "blocks/presentation/presentation.twig" %}
+    </section>
+
+    <section  id="contact">
+        {% include "blocks/contact/contact.twig" %}
+    </section>
+
+    <section id="counter-id">
+        {% include "blocks/counter/counter.twig" %}
+    </section>
+
+    <section class="px-0">
+        {% include "blocks/map/map.twig" %}
+    </section>
+
+    <section class="px-0">
+        {% include "blocks/socials/socials.twig" %}
+    </section>
+</div>
+
+
+{% endblock %}

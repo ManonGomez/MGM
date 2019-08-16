@@ -1,0 +1,529 @@
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+body {
+    font-family: Roboto, Sans-serif, Fantasy;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+section {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+.dark-bg  {
+    background-color: #212529;
+    color: #ffffff;
+}
+
+
+#fixe {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+    background-color: black;
+    opacity: 0.9;
+    z-index: 800;
+    box-shadow: 0px 1px 1px white;
+    -webkit-transition: 0.3s;
+}
+
+#fixe:hover {
+    opacity: 1;
+}
+
+.content-page {
+    /* pour compenser le menu qui est en position fixed et faire passer le contenu de la page en dessous*/
+    padding-top: 85px;
+}
+
+.content-page.content-home-page {
+    /* pour laisser le menu par dessus le contenu sur la home */
+    padding-top: 0;
+}
+
+.paddingsection {
+    padding: 3% 0%;
+}
+
+.globalfixe {
+    display: flex;
+    width: 100%;
+}
+
+#fixe ul {
+    display: flex;
+    list-style: none;
+    width: 50%;
+}
+
+#fixe li a {
+    color: white;
+    padding: 20px 16px;
+    text-decoration: none;
+}
+
+#fixe li a:hover {
+    color: #42403d;
+}
+
+.log {
+    margin-top: -1.5%;
+}
+
+.logo {
+    width: 30%;
+}
+
+.btn {
+    border: transparent;
+    margin: 1%;
+}
+
+#portfolio {
+    background-color: white;
+}
+
+section h3 {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1.5em;
+}
+
+h2 {
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+/* Animations titre */
+
+.tracking-in-expand {
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.slideshow-image1,
+.slideshow-image2 {
+    width: 100%;
+}
+
+
+/* Hide the images by default */
+
+.mySlides {
+    display: none;
+}
+
+
+/* Next & previous buttons */
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+
+/* Position the "next button" to the right */
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.text {
+    color: white;
+    font-size: 60px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slider-buttons {
+    text-align: center;
+    background-color: #343a40;
+}
+
+#buttonplay,
+#buttonpause {
+    color: black;
+    background-color: white;
+    width: 3%;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    border: none;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    -webkit-transition: 0.3s;
+}
+
+#buttonplay:hover,
+#buttonpause:hover {
+    background-color: #777777;
+}
+
+.explainContener {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.services {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10%;
+}
+
+#sectionservices {
+    background-color: #343a40;
+}
+
+h4 {
+    display: flex;
+    justify-content: center;
+}
+
+.explain {
+    width: 18%;
+    border-radius: 5px;
+    padding: 42px 22px;
+    margin: 1% 0%;
+    background-color: white;
+    -webkit-transition: 0.3s;
+    cursor: crosshair;
+}
+
+.explain:hover {
+    background-color: #42403d;
+    color: white;
+}
+
+.lightbox-photos-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.lightbox-photo-item {
+    display: inline-block;
+    width: 22%;
+    margin: 8px 0;
+}
+
+#sectionphotos {
+    background-color: #212529;
+}
+
+.exemple {
+    width: 100%;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.container:hover .image {
+    opacity: 0.3;
+}
+
+.container:hover .middle {
+    opacity: 1;
+}
+
+.legend {
+    background-color: #f2e5d0;
+    color: black;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-color: transparent;
+    margin: 2%;
+    bottom: 1px;
+}
+
+.legend:hover {
+    background-color: #42403d;
+    color: #f2e5d0;
+}
+
+.picture {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.more {
+    display: flex;
+    justify-content: space-around;
+}
+
+.portrait {
+    display: flex;
+    justify-content: center;
+    width: 14%;
+}
+
+#sectionabout {
+    background-color: #343a40;
+}
+
+.cv {
+    background-color: #42403d;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 50%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cv:hover {
+    background-color: white;
+    color: #42403d;
+}
+
+.detail {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin-top: 5%;
+}
+
+#contact {
+    background-color: white;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: inherit;
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+}
+
+.lineform {
+    display: flex;
+}
+
+.line {
+    flex: 6;
+}
+
+.bigline {
+    flex: 12;
+}
+
+input {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#map {
+    height: 30vh;
+    flex: 12;
+}
+
+.map-flex {
+    display: flex;
+}
+
+.container1 {
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
+    margin: auto 0;
+    color: #42403d;
+}
+
+.link {
+    margin: 0.5%;
+    color: black;
+}
+
+.social-media {
+    width: 100%;
+    height: auto;
+}
+
+.adaptive-box {
+    width: 100%;
+    display: flex;
+}
+
+.adaptive-box .social-box {
+    flex: 4;
+    height: auto;
+    text-align: center;
+    font-size: 4em;
+    color: white;
+    -webkit-transition: 0.5s;
+}
+
+.adaptive-box .instagram {
+    background-color: #E1306C;
+}
+
+.adaptive-box .instagram:hover {
+    opacity: 0.8;
+}
+
+.adaptive-box .linkedin {
+    background-color: #0077B5;
+}
+
+.adaptive-box .linkedin:hover {
+    opacity: 0.8;
+}
+
+.adaptive-box .mail {
+    background-color: #777777;
+}
+
+.adaptive-box .mail:hover {
+    opacity: 0.8;
+}
+
+.pageContainer {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.counter {
+    text-align: center;
+}
+
+.counter .col-3 {
+    border-right: 3px solid black;
+}
+
+.counter .nb {
+    border-right: none;
+}
+
+.counter i {
+    font-size: 3em;
+    color: #777777;
+}
+
+.counter .number {
+    font-size: 3em;
+    color: white;
+    margin: 0.2em;
+    padding: 0;
+    opacity: 1;
+    font-weight: bold;
+}
+
+.counter h2 {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+    color: #777777;
+}
+
+#counter-id {
+    background-color: #212529;
+}
+
+.buttonContainer {
+    width: 100%;
+    text-align: center;
+}
+
+.card-text {
+    text-align: justify;
+    height: 50%;
+}
+
+@media screen and (max-width: 768px) {
+
+    .explain {
+        width: 45%;
+    }
+
+}
+
+@media screen and (max-width: 580px) {
+    .content-page {
+        /* pour compenser le menu qui est en position fixed et faire passer le contenu de la page en dessous*/
+        padding-top: 65px;
+    }
+    
+    .content-page.content-home-page {
+        padding-top: 65px;
+    }
+
+    .lightbox-photos-container {
+        justify-content: center;
+    }
+    .lightbox-photo-item {
+        width: 90%;
+    }
+
+    .explain {
+        width: 90%;
+    }
+
+    .explainContener {
+        justify-content: center;
+
+    }
+
+}

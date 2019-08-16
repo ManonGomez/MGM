@@ -1,0 +1,16 @@
+{% extends "layout.twig" %}
+
+{% block title %}
+    MGM - Photographie
+{% endblock %}
+
+{% block content %}
+    <section id="sectionphotos" class="dark-bg ">
+        {% include "blocks/lightbox_photos/lightbox_photos.twig" %}
+    </section>
+
+    <section class="px-0">
+        {% include "blocks/socials/socials.twig" %}
+    </section>
+
+{% endblock %}

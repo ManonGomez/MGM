@@ -1,0 +1,22 @@
+<header id="fixe">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/"><img class="logo" src="/medias/logo2.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        Web
+                    </a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{{ path_for('photograhpy') }}">Photographie</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path_for('contact') }}">Contact</a></li>
+            </ul>
+        </div>
+        {#         <button class="login button btn my-2 my-sm-0" type="submit">CONNEXION</button>
+        <button class="registration button btn  my-2 my-sm-0" type="submit">INSCRIPTION</button> #}
+    </nav>
+</header>

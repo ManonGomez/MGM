@@ -1,0 +1,124 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Roboto, Sans-serif, Fantasy;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #7094db;
+}
+
+.card {
+    margin-top: 2%;
+}
+
+.h6,
+h6 {
+    font-size: 3rem;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+#fixe {
+
+    z-index: 2222;
+    width: 100%;
+    background-color: #F1F1F2;
+    top: 0px;
+}
+
+#top {
+    margin-top: 5%;
+}
+
+form {
+    width: 50%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.explain {
+    margin-top: 3%;
+    margin-right: 5%;
+    margin-left: 5%;
+    border: 5px solid #A1D6E2;
+}
+
+.explain h1 {
+    justify-content: center;
+    display: flex;
+}
+
+.explain p {
+    display: flex;
+    justify-content: center;
+    margin: 4%;
+    line-height: 40px;
+}
+
+#topb {
+    margin: 2%;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+}
+
+.copyright {
+    text-align: center;
+    margin: 0;
+}
+
+.ic {
+    margin-right: 1%;
+    margin-left: 1%;
+    color: black;
+}
+
+.ic:hover {
+    color: #7094db;
+}
+
+footer {
+    
+    bottom: 0;
+    background-color: #F1F1F2;
+    width: 100%;
+}
+
+.card {
+    margin-bottom: 2%;
+}
+
+.card-header {
+    background-color: #99b3e6;
+}
+
+.card-header a {
+    color: black;
+}
+
+.btn-outline-dark, .write{
+    margin-top: 5%;
+}
+
+h3, h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.card-header a:hover {
+    color: white;
+    text-decoration: none;
+}
