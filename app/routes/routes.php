@@ -13,7 +13,9 @@ $app->get('/contact', ContactController::class . ':contact')->setName('contact')
 $app->get('/mgm_connect', UserController::class . ':connect')->setName('connect');
 
 $app->post('/mgm_connect', UserController::class . ':postConnect');
+$app->post('/mgm_register', UserController::class . ':register');
 $app->get('/logout', UserController::class . ':logout')->setName('logout');
+
 
 //admin
 //middleware pour verifier la session admin

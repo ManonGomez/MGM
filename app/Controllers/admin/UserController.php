@@ -59,5 +59,27 @@ class UserController extends Controller {
 
         
     }
+    public function register(RequestInterface $request, ResponseInterface $response){
+        $message = '';
+        $pseudo = $request->getParam('pseudo');
+        $firstname = $request->getParam('firstname');
+        $lastname = $request->getParam('lastname');
+        $mail = $request->getParam('mail');
+        $password = $request->getParam('password');
+
+        $password = hash('sha256', $salt . $_POST['password']);
+
+        $pseudoValidation = Validator::notEmpty()->validate($pseudo);
+        $firstnameValidation = Validator::notEmpty()->validate($firstname);
+        $lastnameValidation = Validator::notEmpty()->validate($lastname);
+        $mailValidation = Validator::notEmpty()->validate($mail);
+        $passwordValidation = Validator::notEmpty()->validate($password);
+         
+        $userexist = $requser->rowCount();
+
+
+                   
+            $this->render($response, 'pages/.twig');  
+    }
 
 }

@@ -1,0 +1,18 @@
+{% extends "layout.twig" %}
+
+{% block title %}
+    inscription - MGM
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2>S'inscrire</h2>
+    {{ message }}
+    {% include "blocks/register.twig" %}
+</div>
+
+
+
+
+{% endblock %}

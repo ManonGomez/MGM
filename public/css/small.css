@@ -28,3 +28,30 @@
 #name, #mail, #telephone, #topic, #exampleFormControlTextarea1{
     width: 50%;
 }
+/*@media screen and (max-width: 580px) {*/
+    .content-page {
+        /* pour compenser le menu qui est en position fixed et faire passer le contenu de la page en dessous*/
+        padding-top: 65px;
+    }
+    
+    .content-page.content-home-page {
+        padding-top: 65px;
+    }
+
+    .lightbox-photos-container {
+        justify-content: center;
+    }
+    .lightbox-photo-item {
+        width: 90%;
+    }
+
+    .explain {
+        width: 90%;
+    }
+
+    .explainContener {
+        justify-content: center;
+
+    }
+
+/*}*/
