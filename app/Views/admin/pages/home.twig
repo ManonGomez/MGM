@@ -7,6 +7,33 @@
 {% block content %}
 
 <h2>Tableau de bord</h2>
+<!--faire avec membre demande d'offre puis validation ou refus et selon affichage dans espace membre-->
 
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Pseudo</th>
+        <th scope="col">Nom de l'offre</th>
+        <th scope="col">Valider</th>
+        <th scope="col">Refuser</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <?php while ($showOffers = $getOffer->fetch()) { ?>
+        <td ><?= $showOffers['pseudo'] ?></td>
+        <td><?= $showOffers['offer'] ?></td>
+        <form method="post">
+          <input type="submit" id="send" name="valid" value="valider" class="btn btn-sucess">
+      </form>
+      <form method="post">
+          <input type="submit" id="send" name="delete" value="refuser" class="btn btn-danger">
+      </form>
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <?php } ?>
+      </tr>
+    </tbody>
+  </table>
 
 {% endblock %}

@@ -9,12 +9,15 @@ use App\Controllers\Admin\AdminController;
 $app->get('/', IndexController::class . ':index');
 $app->get('/photographie', PhotosController::class . ':indexPhotos')->setName('photograhpy');
 $app->get('/contact', ContactController::class . ':contact')->setName('contact');
+//$app->get('/member' ,  ::class . )->setName('member');
+
 
 $app->get('/mgm_connect', UserController::class . ':connect')->setName('connect');
 
 $app->post('/mgm_connect', UserController::class . ':postConnect');
 $app->post('/mgm_register', UserController::class . ':register');
 $app->get('/logout', UserController::class . ':logout')->setName('logout');
+
 
 
 //admin
@@ -24,7 +27,7 @@ $checkSession = function($request, $response, $next) {
         $response = $next($request, $response);
     }
     else {
-        $response = $response->withRedirect('/');
+        $response = $response->withRedirect('./app/Views/admin/home.twig');
     }
 
     return $response;

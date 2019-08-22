@@ -14,10 +14,22 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="{{ path_for('photograhpy') }}">Photographie</a></li>
                 <li class="nav-item"><a class="nav-link btn" href="{{ path_for('contact') }}">Contact</a></li>
-                <button class="btn btn-info" type="submit"><a href="{{ path_for('connect') }}">CONNEXION</a></button>
-                <button class="btn btn-secondary" type="submit"><!--<a href="{{ path_for('register') }}">-->INSCRIPTION<!--</a>--></button>
+                <?php
+                if(!empty($_SESSION['username']) AND !empty($_SESSION['mail']))
+                {
+                    echo ' <li class="nav-item"><a class="nav-link btn" href="{{ path_for('contact') }}">Votre espace</a></li>
+                    <button class="btn btn-info" type="submit"><a href="{{ path_for('logout') }}">CONNEXION</a></button>;
+    
+                }
+                else
+                {
+                    echo ' <button class="btn btn-info" type="submit"><a href="{{ path_for('connect') }}">CONNEXION</a></button>
+                    <button class="btn btn-secondary" type="submit"><a href="{{ path_for('register') }}">INSCRIPTION</a></button>';
+                }
+                ?>
             </ul>
         </div>
+        
         {#         <button class="login button btn my-2 my-sm-0" type="submit">CONNEXION</button>
         <button class="registration button btn  my-2 my-sm-0" type="submit">INSCRIPTION</button> #}
     </nav>
