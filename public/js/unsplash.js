@@ -1,37 +1,50 @@
-// ES Modules syntax
-import Unsplash from 'unsplash-js';
+window.addEventListener('load', () => {
 
-// require syntax
-const Unsplash = require('unsplash-js').default;
+    initForm();
 
-const unsplash = new Unsplash({
-    //acces key
-  applicationId: "{fb329a94f8871fac69bd92222d9d5675b6eb8e3212a2a9ee079a38b592232917}",
-  //app secret
-  secret: "{9501f976fcf85ada0a2abcb83e1f8d8379dcd52b3cc560d6eb271a3a0ba31825}"
 });
 
+function initForm() {
+    const formUnsplash = document.getElementById('unsplash-form');
+    if( formUnsplash !== null ) {
+        formUnsplash.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const inputQuery = document.getElementById('unsplash-query');
+            const queryValue = inputQuery.value;
+            unsplashRequest(queryValue)
+        })
+    } 
 
-// test2
+}
 
-var APIKey = '9501f976fcf85ada0a2abcb83e1f8d8379dcd52b3cc560d6eb271a3a0ba31825';
+function unsplashRequest(query) {
+    //si la recherche est vide on ne fait pas de requete et on passe un tableau vide à la fonction
+    if ( query  === '') {
+        return buildGallery([]);
+        //avec return, on s'arrete là
+    }
+    //on recupere les éléments en PHP afin de garder secret les identifiants de connexion à unsplash
+    fetch('/admin/photosFromUnsplash/' + query)
+    .then( (response) => {
+        response.json().then( (response) => {
+            buildGallery(response);
+        })
+    })
+    .catch( (err) => console.log(err) );
 
-$.getJSON('https://api.unsplash.com/search/photos?query=chicago&per_page=50&client_id=9501f976fcf85ada0a2abcb83e1f8d8379dcd52b3cc560d6eb271a3a0ba31825', function(data) {
-  console.log(data);
-  
-  
-  var imageList = data.results;
-  
-  $.each(imageList, function(i, val) {
-    
-    var image = val;
-    var imageURL = val.urls.regular;
-    var imageWidth = val.width;
-    var imageHeight = val.height;
-    
-    if (imageWidth > imageHeight) {
-      $('.grid').append('<div class="image"><img src="'+ imageURL +'"></div>');
-    }   
-    
-  });  
-});
+}
+
+function buildGallery(ListPhotos) {
+    //TODO : ajouter une pagination
+    console.log(ListPhotos);
+    const galleryContainer = document.getElementById('unsplash-container');
+    let gallery = '<div class="row">';
+    ListPhotos.forEach( (element, index) => {
+       gallery += `<div class="col-2">
+                    <img class="img-fluid" src="${element.urls.regular}" />
+                    <a href="${element.links.html}" download target="_blank">Télécharger via unplash</a>
+                   </div>`; 
+    })
+    gallery += '</div>';
+    galleryContainer.innerHTML = gallery;
+}

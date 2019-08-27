@@ -1,8 +1,8 @@
 {
-    "name": "MGM",
+    "name": "manon/p5",
     "authors": [{
-        "name": "Manon",
-        "email": "manongm01240@gmail.com"
+        "name": "Jonathan",
+        "email": "condette.jonathan@gmail.com"
     }],
     "autoload": {
         "psr-4": {
@@ -13,6 +13,8 @@
         "slim/slim": "^3.12",
         "slim/twig-view": "^2.5",
         "respect/validation": "^1.1",
-        "egulias/email-validator": "^2.1"
+        "egulias/email-validator": "^2.1",
+        "samayo/bulletproof": "4.0.*",
+        "unsplash/unsplash": "^2.5"
     }
 }

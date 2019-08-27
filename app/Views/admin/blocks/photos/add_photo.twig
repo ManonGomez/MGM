@@ -1,0 +1,5 @@
+<form action="{{ path_for('manage_photos') }}" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="MAX_FILE_SIZE" value="10000000000000" />
+    <input type="file" name="pictures" accept="image/*" />
+    <input type="submit" value="upload" />
+</form>

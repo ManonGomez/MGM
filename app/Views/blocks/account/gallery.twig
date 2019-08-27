@@ -1,0 +1,31 @@
+<div class="lightbox-photos-container">
+    <div class="row">
+
+        {% for photo in photosList %}
+            <div class="col-3">
+                <a class="" data-lightbox="portfolioimg" href="/{{ photo.path }}">
+                    <img alt="" class="img-thumbnail img-fluid" src="/{{ photo.path }}"/>
+                </a>
+                <a download href="/{{ photo.path }}">
+                    Télécharger
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% for i in range(1, nbPages) %}
+            {% if i == currentPage %}
+                <li class="page-item active">
+                    <a class="page-link" href="{{ path_for('user_gallery', { page: i }) }}">{{i}}</a>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ path_for('user_gallery', { page: i }) }}">{{i}}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>

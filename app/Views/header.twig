@@ -1,8 +1,7 @@
 <header id="fixe">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/"><img class="logo" src="/medias/logo2.png" alt="logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="/"><img alt="logo" class="logo" src="/medias/logo2.png"></a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -12,25 +11,30 @@
                         Web
                     </a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="{{ path_for('photograhpy') }}">Photographie</a></li>
-                <li class="nav-item"><a class="nav-link btn" href="{{ path_for('contact') }}">Contact</a></li>
-                <?php
-                if(!empty($_SESSION['username']) AND !empty($_SESSION['mail']))
-                {
-                    echo ' <li class="nav-item"><a class="nav-link btn" href="{{ path_for('contact') }}">Votre espace</a></li>
-                    <button class="btn btn-info" type="submit"><a href="{{ path_for('logout') }}">CONNEXION</a></button>;
-    
-                }
-                else
-                {
-                    echo ' <button class="btn btn-info" type="submit"><a href="{{ path_for('connect') }}">CONNEXION</a></button>
-                    <button class="btn btn-secondary" type="submit"><a href="{{ path_for('register') }}">INSCRIPTION</a></button>';
-                }
-                ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path_for('photograhpy') }}">Photographie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path_for('contact') }}">Contact</a>
+                </li>
+                {% if session.admin == false %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path_for('connect') }}">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path_for('register') }}">Inscription</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path_for('dashboard') }}">Mon compte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path_for('logout') }}">Deconnexion</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
-        
-        {#         <button class="login button btn my-2 my-sm-0" type="submit">CONNEXION</button>
-        <button class="registration button btn  my-2 my-sm-0" type="submit">INSCRIPTION</button> #}
+        {# <button class="login button btn my-2 my-sm-0" type="submit">CONNEXION</button>
+                        <button class="registration button btn  my-2 my-sm-0" type="submit">INSCRIPTION</button> #}
     </nav>
 </header>

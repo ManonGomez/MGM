@@ -13,4 +13,7 @@ class MemberController extends Controller {
         $this->render($response, '/pages/member.twig', ['name' => 'Marc']);
     }
     
+    public function offre(){
+        
+    }
 }

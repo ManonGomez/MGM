@@ -7,8 +7,18 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Respect\Validation\Validator;
 use App\Models\Admin\AdminUserManager;
+use App\Models\Admin\AdminPhotosManager;
 
 class UserController extends Controller {
+
+    protected $photoManager;
+
+    function __construct($container)
+    {
+        //appel du constructeur parent
+        parent::__construct($container);
+        $this->photoManager = new AdminPhotosManager();
+    }
 
     /**
      * Page de login
@@ -37,8 +47,6 @@ class UserController extends Controller {
         $password = $request->getParam('password');
 
         //https://respect-validation.readthedocs.io/en/1.1/
-        //var_dump($request->getParams());die();
-
         $pseudoValidation = Validator::notEmpty()->validate($pseudo);
         $passWordValidation = Validator::notEmpty()->validate($password);
 
@@ -52,34 +60,49 @@ class UserController extends Controller {
         }
 
         if ( $userexist === 1 )  {
+            $user = $requser->fetchObject();
             $_SESSION['admin'] = true;
+            $_SESSION['pseudo'] = $user->pseudo;
+            $_SESSION['role'] = $user->role;
             $response = $response->withRedirect('/admin/dashboard');
             return $response;
         }
 
         
     }
-    public function register(RequestInterface $request, ResponseInterface $response){
+
+
+    public function register(RequestInterface $request, ResponseInterface $response) {
+        $this->render($response, 'pages/register.twig');
+    }
+
+    public function postRegister(RequestInterface $request, ResponseInterface $response) {
         $message = '';
         $pseudo = $request->getParam('pseudo');
-        $firstname = $request->getParam('firstname');
-        $lastname = $request->getParam('lastname');
-        $mail = $request->getParam('mail');
         $password = $request->getParam('password');
 
-        $password = hash('sha256', $salt . $_POST['password']);
-
+        //https://respect-validation.readthedocs.io/en/1.1/
         $pseudoValidation = Validator::notEmpty()->validate($pseudo);
-        $firstnameValidation = Validator::notEmpty()->validate($firstname);
-        $lastnameValidation = Validator::notEmpty()->validate($lastname);
-        $mailValidation = Validator::notEmpty()->validate($mail);
-        $passwordValidation = Validator::notEmpty()->validate($password);
-         
+        $passWordValidation = Validator::notEmpty()->validate($password);
+
+        $userManager = new AdminUserManager();
+        $requser = $userManager->getUser($pseudo, $password);
         $userexist = $requser->rowCount();
 
-
-                   
-            $this->render($response, 'pages/.twig');  
+        if( $userexist !== 1|| !$pseudoValidation || !$passWordValidation  ) {
+            $userAdded= $userManager->addUser($pseudo, $password, 'USER');
+            
+            $userReq = $userManager->getUserById($userAdded);
+            $user = $userReq->fetchObject();
+            $_SESSION['admin'] = true;
+            $_SESSION['pseudo'] = $user->pseudo;
+            $_SESSION['role'] = $user->role;
+            return $response->withRedirect('/admin/dashboard');
+        }
+        else {
+            $message = 'Identifiant déjà utilisé';
+            return $this->render($response, 'pages/register.twig', ['message' => $message]);
+        }
     }
 
 }

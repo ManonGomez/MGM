@@ -6,6 +6,7 @@ use App\Models\Manager;
 class AdminOfferManager extends Manager
 {
 
+    
     public function getOffer()
     {
         $bdd = $this->dbConnect();

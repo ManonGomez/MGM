@@ -10,4 +10,5 @@ class PhotosController extends Controller {
     public function indexPhotos(RequestInterface $request, ResponseInterface $response) {
         $this->render($response, '/pages/photos.twig', ['name' => 'Marc']);
     }
+    
 }

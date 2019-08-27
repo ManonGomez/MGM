@@ -1,39 +1,25 @@
-{% extends "layout.twig" %}
+{% extends "layout.twig" %} {% block title %} Admin - MGM {% endblock %} {% block content %}
 
-{% block title %}
-    Admin - MGM
-{% endblock %}
+<div class="container my-4 card">
+    <div class="card-body">
+        <h2>Bienvenue {{ pseudo }}</h2>
+        <p>AJouter du style sur les liens ci dessous et ajouter un peu de text</p>
 
-{% block content %}
+        <div>
+            <a class="btn btn-info" href="{{ path_for('manage_photos') }}">Ajouter des photos</a>
+        </div>
 
-<h2>Tableau de bord</h2>
-<!--faire avec membre demande d'offre puis validation ou refus et selon affichage dans espace membre-->
+        <div>
+            <a class="btn btn-info" href="{{ path_for('user_gallery') }}">Voir la gallerie d'images</a>
+        </div>
 
-<table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Pseudo</th>
-        <th scope="col">Nom de l'offre</th>
-        <th scope="col">Valider</th>
-        <th scope="col">Refuser</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-          <?php while ($showOffers = $getOffer->fetch()) { ?>
-        <td ><?= $showOffers['pseudo'] ?></td>
-        <td><?= $showOffers['offer'] ?></td>
-        <form method="post">
-          <input type="submit" id="send" name="valid" value="valider" class="btn btn-sucess">
-      </form>
-      <form method="post">
-          <input type="submit" id="send" name="delete" value="refuser" class="btn btn-danger">
-      </form>
-        <!--<td></td>-->
-        <!--<td></td>-->
-        <?php } ?>
-      </tr>
-    </tbody>
-  </table>
+        <div>
+            <a class="btn btn-info" href="{{ path_for('user_unsplashgallery') }}">Rechercher via Unsplash</a>
+        </div>
+
+
+    </div>
+
+</div>
 
 {% endblock %}

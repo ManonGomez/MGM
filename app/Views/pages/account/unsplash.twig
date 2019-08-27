@@ -1,0 +1,26 @@
+{% extends "layout.twig" %} {% block title %}
+MGM - Unsplash
+{% endblock %}
+
+{% block content %}
+
+{%  if session.admin == true %}
+<section>
+    <h2>Rechercher une image via Unsplash</h2>
+    <form id="unsplash-form" action="" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <input class="form-control" type="text" id="unsplash-query" name="rechercher une image" />
+            </div>
+            <button class="btn btn-info" type="submit">Rechercher</button>
+        </div>
+    </form>
+    <div id="unsplash-container">
+
+    </div>
+</section>
+
+
+{% endif %}
+
+{% endblock %}

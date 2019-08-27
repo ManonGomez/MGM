@@ -7,8 +7,9 @@ use Psr\Http\Message\ResponseInterface;
 
 class Controller {
 
-    public function __construct($container)
+    function __construct($container)
     {
+        
         $this->container = $container;
     }
 

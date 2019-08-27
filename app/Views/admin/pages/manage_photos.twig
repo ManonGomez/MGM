@@ -1,0 +1,25 @@
+{% extends "layout.twig" %} {% block title %} Admin - MGM {% endblock %} {% block content %}
+
+<h2>Bienvenue {{ session.pseudo }}</h2>
+
+<section>
+    <h3>
+        Ajouter une photo à la gallerie
+
+    </h3>
+    <div>
+        {% include "admin/blocks/photos/add_photo.twig" %}
+    </div>
+    <div class="row">
+        {% for photo in photoList %}
+        <div class="col-2">
+            <img src="/{{ photo.path }}" alt="" class="img-fluid">
+            <form action="{{ path_for('delete_photo') }}" method="POST">
+                <input type="hidden" name="id" value={{ photo.id }}>
+                <input type="submit" class="btn btn-primary" value="supprimer">
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
