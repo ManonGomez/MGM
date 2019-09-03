@@ -1,25 +1,25 @@
 {% extends "layout.twig" %} {% block title %} Admin - MGM {% endblock %} {% block content %}
-
-<div class="container my-4 card">
+<div class="centercard">
+<div class="card">
+        <div class="card-header">
+    <h2>Bienvenue {{ session.pseudo }}</h2>
+    </div>
     <div class="card-body">
-        <h2>Bienvenue {{ pseudo }}</h2>
-        <p>AJouter du style sur les liens ci dessous et ajouter un peu de text</p>
+    <p class="cardtextcenter">AJouter du style sur les liens ci dessous et ajouter un peu de text</p>
 
-        <div>
-            <a class="btn btn-info" href="{{ path_for('manage_photos') }}">Ajouter des photos</a>
-        </div>
-
-        <div>
-            <a class="btn btn-info" href="{{ path_for('user_gallery') }}">Voir la gallerie d'images</a>
-        </div>
-
-        <div>
-            <a class="btn btn-info" href="{{ path_for('user_unsplashgallery') }}">Rechercher via Unsplash</a>
-        </div>
-
-
+    <div class="centerdiv">
+        <a class="btn btn-secondary centerbut" href="{{ path_for('manage_photos') }}">Ajouter des photos</a>
     </div>
 
+    <div class="centerdiv">
+        <a class="btn btn-secondary centerbut" href="{{ path_for('user_gallery') }}">Voir la gallerie d'images</a>
+    </div>
+
+    <div class="centerdiv">
+        <a class="btn btn-secondary centerbut" href="{{ path_for('user_unsplashgallery') }}">Rechercher via Unsplash</a>
+    </div>
 </div>
 
+</div>
+</div>
 {% endblock %}

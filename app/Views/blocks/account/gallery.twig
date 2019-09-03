@@ -6,14 +6,14 @@
                 <a class="" data-lightbox="portfolioimg" href="/{{ photo.path }}">
                     <img alt="" class="img-thumbnail img-fluid" src="/{{ photo.path }}"/>
                 </a>
-                <a download href="/{{ photo.path }}">
+                <a class="btn btn-secondary" download href="/{{ photo.path }}">
                     Télécharger
                 </a>
             </div>
         {% endfor %}
     </div>
 </div>
-
+{% if nbPages > 0 %}
 <nav aria-label="Page navigation example">
     <ul class="pagination">
         {% for i in range(1, nbPages) %}
@@ -29,3 +29,4 @@
         {% endfor %}
     </ul>
 </nav>
+{% endif %}

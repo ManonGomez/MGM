@@ -16,7 +16,7 @@
             <img src="/{{ photo.path }}" alt="" class="img-fluid">
             <form action="{{ path_for('delete_photo') }}" method="POST">
                 <input type="hidden" name="id" value={{ photo.id }}>
-                <input type="submit" class="btn btn-primary" value="supprimer">
+                <input type="submit" class="btn btn-danger" value="Supprimer">
             </form>
         </div>
         {% endfor %}

@@ -16,7 +16,4 @@ class AdminController extends Controller {
         $this->render($response, 'admin/pages/home.twig');
     }
 
-    public function offre(){
-        
-    }
 }

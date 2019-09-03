@@ -91,7 +91,7 @@ class AdminPhotosController extends Controller
         $nbPages = ceil($nbPhotos / $nbByPage );
         $firstPhotoForPage = ($page - 1) * $nbByPage;
 
-        if ( $page > $nbPages || $page < 1 ) {
+        if (( $page > $nbPages || $page < 1) && $nbPages > 0 ){
             return $response->withRedirect('/admin/gallery/1');
         }
         $photosList = $this->photoManager->getAllPhotosWithPagination($firstPhotoForPage, $nbByPage)->fetchAll();
