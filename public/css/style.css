@@ -509,45 +509,8 @@ input {
     display: flex;
     justify-content: center;
 }
-.centerbut{
-   width: 20%;
-}
+
 .centerdiv{
     display: flex;
     justify-content: center;
-}
-@media screen and (max-width: 768px) {
-
-    .explain {
-        width: 45%;
-    }
-
-}
-
-@media screen and (max-width: 580px) {
-    .content-page {
-        /* pour compenser le menu qui est en position fixed et faire passer le contenu de la page en dessous*/
-        padding-top: 65px;
-    }
-    
-    .content-page.content-home-page {
-        padding-top: 65px;
-    }
-
-    .lightbox-photos-container {
-        justify-content: center;
-    }
-    .lightbox-photo-item {
-        width: 90%;
-    }
-
-    .explain {
-        width: 90%;
-    }
-
-    .explainContener {
-        justify-content: center;
-
-    }
-
 }

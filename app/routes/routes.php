@@ -44,5 +44,6 @@ $app
         $app->get('/unsplashgallery', UnsplashController::class . ':userUnsplashGallery')->setName('user_unsplashgallery');
 
         $app->get('/photosFromUnsplash/{query}', UnsplashController::class . ':getPhotosFromUnsplash');
+        
     })
     ->add($checkSession);
