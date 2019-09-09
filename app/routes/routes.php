@@ -44,7 +44,9 @@ $app
 
         $app->get('/gallery[/{page}]', AdminPhotosController::class . ':userGallery')->setName('user_gallery')->setArguments(['page' => 1]);
         $app->get('/unsplashgallery', UnsplashController::class . ':userUnsplashGallery')->setName('user_unsplashgallery');
-
+//récupère la requête 
         $app->get('/photosFromUnsplash/{query}', UnsplashController::class . ':getPhotosFromUnsplash');
+        //récupère la page de la requête
+        $app->get('/photosFromUnsplash/{query}/{page}', UnsplashController::class . ':getPhotosFromUnsplash');
     })
     ->add($checkSession);

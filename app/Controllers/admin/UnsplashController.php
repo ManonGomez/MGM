@@ -5,17 +5,17 @@ namespace App\Controllers\Admin;
 use App\Controllers\Controller;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use App\ConfigApp;
 
 class UnsplashController extends Controller
 {
     public function __construct($container)
     {
-        \Crew\Unsplash\HttpClient::init([
-            'applicationId'    => '9bceaf5fc9f94ef1a2a0c427ee2d1bd44a4b4950ca1aec1f6372450319eb1b4a',
-            'secret'        => '4530d84c27373bcf88e4cdab82da6110422a36a8921d861e14a554a87ad8283a',
-            'utmSource' => 'mgm',
-            'callbackUrl' => 'http://example.com'
-        ]);
+        //une classe qui permet d'externaliser la config
+        $configApp = new ConfigApp();
+        $confUnsplash = $configApp->get('unsplash');
+        //Lien vers la ressource github de unsplash php https://github.com/unsplash/unsplash-php
+        \Crew\Unsplash\HttpClient::init($confUnsplash);
         $httpClient = new \Crew\Unsplash\HttpClient();
         $scopes = ['public'];
 
@@ -30,12 +30,24 @@ class UnsplashController extends Controller
     public function getPhotosFromUnsplash(RequestInterface $request, ResponseInterface $response, $args)
     {   
         $query = $args['query'];
-        $page = 3;
+        $page = 1;
         $per_page = 15;
         $orientation = 'landscape';
 
+        if ( isset($args['page']) ) {
+            $page = $args['page'];
+        }
+        // comment effcetuer une recherche de photos via ce lien https://github.com/unsplash/unsplash-php#search
         $data = \Crew\Unsplash\Search::photos($query, $page, $per_page, $orientation);
-        $newResponse = $response->withJson($data->getResults());
+
+        $responseData = array(
+            'total' => $data->getTotal(),
+            'totalPage' => $data->getTotalPages(),
+            'results' => $data->getResults(),
+            'page' => $page
+        );
+        $newResponse = $response->withJson($responseData);
+
 
         return $newResponse;
     }

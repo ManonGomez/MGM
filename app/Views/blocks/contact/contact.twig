@@ -4,9 +4,23 @@
     <hr>
     <div class="pageContainer">
         <div>
+            {% if message %}
+                {% if type == 'error' %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div>
             <p>Si vous avez des questions ou besoin devis, n'hésitez pas !</p>
             <p>Les informations personnelles saisies restent confidentielles.</p>
             {% include "blocks/contact/form.twig" %}
         </div>
+
     </div>
 </div>

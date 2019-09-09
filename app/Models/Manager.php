@@ -1,5 +1,8 @@
 <?php
 namespace App\Models;
+
+use App\ConfigApp;
+
 //class Manager
 class Manager
 {
@@ -7,8 +10,9 @@ class Manager
 
     protected function dbConnect()
     {
-
-        $bdd = new \PDO('mysql:host=sql.chaffy.net;dbname=w1vy57_manon5', 'w1vy57_manon5', '#MchP#88&Mgm#');
+        $configApp = new ConfigApp();
+        $confDatabse = $configApp->get('database');
+        $bdd = new \PDO('mysql:host=' . $confDatabse['host'] . ';dbname=' . $confDatabse['dbName'], $confDatabse['user'], $confDatabse['password']);
         return $bdd;
-        }
     }
+}
