@@ -10,7 +10,9 @@ use App\Controllers\Admin\UnsplashController;
 //frontend
 $app->get('/', IndexController::class . ':index');
 $app->get('/photographie', PhotosController::class . ':indexPhotos')->setName('photograhpy');
+
 $app->get('/contact', ContactController::class . ':contact')->setName('contact');
+$app->post('/contact', ContactController::class . ':contactPost');
 
 $app->get('/mgm_connect', UserController::class . ':connect')->setName('connect');
 $app->post('/mgm_connect', UserController::class . ':postConnect');
@@ -44,6 +46,5 @@ $app
         $app->get('/unsplashgallery', UnsplashController::class . ':userUnsplashGallery')->setName('user_unsplashgallery');
 
         $app->get('/photosFromUnsplash/{query}', UnsplashController::class . ':getPhotosFromUnsplash');
-        
     })
     ->add($checkSession);

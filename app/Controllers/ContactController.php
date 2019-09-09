@@ -4,38 +4,33 @@ namespace App\Controllers;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Respect\Validation\Validator;
 
 class ContactController extends Controller {
 
     public function contact(RequestInterface $request, ResponseInterface $response) {
+        $this->render($response, '/pages/contact.twig');
+    }
+
+    public function contactPost(RequestInterface $request, ResponseInterface $response) {
         $pseudo = $request->getParam('pseudo');
         $mail = $request->getParam('mail');
-        $sujet = $request->getParam('sujet');
-        $text = $request->getParam('text');
+        $topic = $request->getParam('topic');
+        $message = $request->getParam('message');
 
         $pseudoValidation = Validator::notEmpty()->validate($pseudo);
-        $mailValidation = Validator::notEmpty()->validate($mail);
-        $sujetValidation = Validator::notEmpty()->validate($sujet);
-        $textValidation = Validator::notEmpty()->validate($text);
+        $mailValidation = Validator::email()->validate($mail);
+        $topicValidation = Validator::notEmpty()->validate($topic);
+        $messageValidation = Validator::notEmpty()->validate($message);
 
-        $headers = 'MIME-Version: 1.0' . "\r\n";
-           $headers .= 'Content-type: text/html; charset=utf8' . "\r\n";
-           $headers .= 'From: "' . $pseudo . '"<' . $mail . '>' . "\n";
-           $headers .= 'Reply-To: ' . $mail . '' . "\n";
+        if ( $pseudoValidation AND $mailValidation AND $topicValidation AND $messageValidation ) {
+            $sendEmail = mail('condette.jonathan@gmail.com', $topic, $message);
+            if ( $sendEmail ) {
+                return $this->render($response, '/pages/contact.twig', ['message' => "Le message a bien été envoyé"]);
+            }
+        }
 
-            $for = 'manon.gomez@chaffy.net';
-
-            $contenu = '<html>';
-            $contenu .= '<head><title>' . $origin . '</title></head>';
-            $contenu .= '<body><h4>' . $pseudo . '</h4>';
-          $contenu .= '<h5>' . $mail . '</h5>';
-           $contenu .= '<h5>' . $sujet . '</h5>';
-            $contenu .= '<h5>' . $tel . '</h5>';
-           $contenu .= '<p>' . $text . '</p></body>';
-           $contenu .= '</html>';
-            mail($for, $contenu, $headers);
-
-        $this->render($response, '/pages/contact.twig', ['name' => 'Marc']);
+        $this->render($response, '/pages/contact.twig', []);
     }
 }
 

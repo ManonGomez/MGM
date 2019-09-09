@@ -1,4 +1,4 @@
-<form>
+<form action="{{ path_for('contact') }}" method="post">
     <div class="form-row">
         <div class="form-group col-md-6">
             <input type="text" class="form-control" placeholder="Votre nom complet" id="name" name="pseudo">
@@ -10,9 +10,9 @@
     <div class="form-row">
 
         <div class="form-group col-md-12">
-            <input type="text" class="form-control" placeholder="Le sujet de votre message" id="topic" name="sujet">
+            <input type="text" class="form-control" placeholder="Le sujet de votre message" id="topic" name="topic">
         </div>
-        <textarea type='text' class="form-control" placeholder="Votre message" id="exampleFormControlTextarea1" rows="3" name="text"></textarea>
+        <textarea type='text' class="form-control" placeholder="Votre message" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
         <div class="buttonContainer">
             <button class="btn btn-success" type="submit">Envoyer</button>
         </div>
