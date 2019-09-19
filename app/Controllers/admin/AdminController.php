@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\Controller;
+use Crew\Unsplash\User;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -16,4 +17,5 @@ class AdminController extends Controller {
         $this->render($response, 'admin/pages/home.twig');
     }
 
+ 
 }

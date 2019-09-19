@@ -68,9 +68,9 @@ const UnsplashGallery = {
         let gallery = '<div class="row">';
         ListPhotos.forEach( (element, index) => {
             //pour chaque photo, on crée une colonne bootstrap
-           gallery += `<div class="col-2">
+           gallery += `<div class="col-2 undiv">
                         <img class="img-fluid" src="${element.urls.regular}" />
-                        <a href="${element.links.html}" download target="_blank">Télécharger via unplash</a>
+                        <a class="btn btn-secondary unbutton" href="${element.links.html}" download target="_blank">Télécharger via unplash</a>
                        </div>`; 
         })
         //fermeture de la div gallery

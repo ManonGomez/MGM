@@ -1,8 +1,8 @@
 {
     "name": "manon/p5",
     "authors": [{
-        "name": "Jonathan",
-        "email": "condette.jonathan@gmail.com"
+        "name": "Manon",
+        "email": "manongm01240@gmail.com"
     }],
     "autoload": {
         "psr-4": {

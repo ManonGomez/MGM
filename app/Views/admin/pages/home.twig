@@ -5,12 +5,12 @@
     <h2>Bienvenue {{ session.pseudo }}</h2>
     </div>
     <div class="card-body">
-    <p class="cardtextcenter">AJouter du style sur les liens ci dessous et ajouter un peu de text</p>
-
+    <p class="cardtextcenter">Que voulez-vous faire ?</p>
+{%if role == ADMIN %}
     <div class="centerdiv">
-        <a class="btn btn-secondary centerbut" href="{{ path_for('manage_photos') }}">Ajouter des photos</a>
+       <a class="btn btn-secondary centerbut admin" href="{{ path_for('manage_photos') }}">Ajouter des photos</a>
     </div>
-
+{%endif%}
     <div class="centerdiv">
         <a class="btn btn-secondary centerbut" href="{{ path_for('user_gallery') }}">Voir la gallerie d'images</a>
     </div>
@@ -22,4 +22,7 @@
 
 </div>
 </div>
+<section  id="contact">
+    {% include "blocks/contact/contact.twig" %}
+</section>
 {% endblock %}
