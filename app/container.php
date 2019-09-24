@@ -24,3 +24,9 @@ $container['view'] = function ($container) {
 
     return $view;
 };
+//Override the default Not Found Handler before creating App
+$container['notFoundHandler'] = function ($container) {
+    return function ($request, $response) use ($container) {
+      return $container->view->render($response, '/pages/404.twig');
+    };
+};

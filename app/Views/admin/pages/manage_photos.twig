@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         {% for photo in photoList %}
-        <div class="col-2">
+        <div class="col-2 pictureAdmin">
             <img src="/{{ photo.path }}" alt="" class="img-fluid">
             <form action="{{ path_for('delete_photo') }}" method="POST">
                 <input type="hidden" name="id" value={{ photo.id }}>

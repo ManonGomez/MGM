@@ -30,7 +30,7 @@
 }
 .content-page {
     /* pour compenser le menu qui est en position fixed et faire passer le contenu de la page en dessous*/
-    padding-top: 65px;
+    padding-top: 85px;
 }
 
 .content-page.content-home-page {
@@ -54,4 +54,43 @@
 }
 .picture{
     height: auto;
+}
+.row{
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+}
+.row .pictureAdmin,.row .picDowload, .row .picUnsplash{
+    max-width: inherit;
+    width: 100%;
+    margin-bottom: 1em;
+}
+.detail{
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+.detail p{
+    width: 100%;
+}
+.card{
+    margin: 0 auto;
+    width: 100%;
+}
+.card .card-text{
+    width: 100%;
+    text-align: center;
+}
+.explain{
+    margin: 1em auto;
+}
+h2{
+    text-align: center;
+}
+.content-page{
+    padding-top: 4em;
+}
+footer{
+    text-align: center;
 }
